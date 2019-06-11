@@ -5,6 +5,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,7 +20,8 @@ public class TweetUtils {
         //JSON parser object to parse read file
         JSONParser jsonParser = new JSONParser();
 
-        try (FileReader reader = new FileReader(filename)) {
+        //try (FileReader reader = new FileReader(filename)) {
+        try(BufferedReader reader = Analysis.getReader(filename)) {
             //Read JSON file
             Object obj = jsonParser.parse(reader);
 
